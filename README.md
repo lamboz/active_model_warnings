@@ -1,5 +1,6 @@
 # ActiveModelWarnings
 [![Build Status](https://travis-ci.org/babasbot/active_model_warnings.svg)](https://travis-ci.org/babasbot/active_model_warnings)
+[![Coverage Status](https://coveralls.io/repos/babasbot/active_model_warnings/badge.svg?branch=master&service=github)](https://coveralls.io/github/babasbot/active_model_warnings?branch=master)
 
 Compliant validtions for ActiveModel. This is useful when you want to define optional validations for a resource and keep it valid.
 
