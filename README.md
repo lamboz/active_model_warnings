@@ -33,8 +33,8 @@ class Resource
   include ActiveModel::Validations
   attr_accessor :password
 
-  validate :password_length
-  validate :blank_password
+  validate :blank_password  # may cause an error
+  validate :password_length # may cause a warning
 
   def initialize(password)
     @password = password
@@ -42,12 +42,12 @@ class Resource
 
   private
 
-  def password_length
-    warnings.add(:password, "min length should be 5") if password.length < 5
-  end
-
   def blank_password
     errors.add(:password, 'should not be blank') if password.length == 0
+  end
+
+  def password_length
+    warnings.add(:password, "min length should be 5") if password.length < 5
   end
 end
 
