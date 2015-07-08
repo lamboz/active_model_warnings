@@ -1,4 +1,5 @@
 # ActiveModelWarnings
+[![Build Status](https://travis-ci.org/babasbot/active_model_warnings.svg)](https://travis-ci.org/babasbot/active_model_warnings)
 
 Compliant validtions for ActiveModel. This is useful when you want to define optional validations for a resource and keep it valid.
 
