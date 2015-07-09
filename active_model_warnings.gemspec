@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Compliant validtions for ActiveModel.}
   spec.description   = %q{This is useful when you want to define optional validations for a resource and keep it valid.}
-  spec.homepage      = "https://github.com/babasbot/active_model_validations."
+  spec.homepage      = "https://github.com/babasbot/active_model_validations"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -19,10 +19,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake",    "~> 10.0"
+  spec.add_dependency("activemodel", ">= 3.0.0")
+
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "coveralls"
-
-  spec.add_runtime_dependency "activemodel",   "~> 4.1.0"
+  spec.add_development_dependency 'appraisal'
 end
