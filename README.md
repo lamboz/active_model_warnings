@@ -27,9 +27,33 @@ Or install it yourself as:
     $ gem install active_model_warnings
 
 ## Usage
-
+### ActiveRecord
 ```ruby
-class Resource
+class User < ActiveRecord::Base
+  attr_accessor :password
+  validate :password_length  # may cause an error
+  validate :blank_password   # may cause a warning
+
+  private
+
+  def password_length
+    warnings.add(:password, "min length should be 5") if password.length < 5
+  end
+
+  def blank_password
+    errors.add(:password, 'should not be blank') if password.length == 0
+  end
+end
+
+user = User.new(:password => 'safe')
+user.valid?
+# => true
+user.compliant?
+# => false
+```
+### ActiveModel
+```ruby
+class User
   include ActiveModel::Validations
   attr_accessor :password
 
@@ -51,20 +75,18 @@ class Resource
   end
 end
 
-resource = Resource.new('safe')
-resouce.valid?
+user = User.new('safe')
+user.valid?
 # => true
-resource.compliant?
+user.compliant?
 # => false
 ```
-
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/babasbot/active_model_warnings. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/babasbot/active_model_warnings. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## TODO
 
- - Test with `ActiveRecord`.
  - Support for `ActiveModel::Validations::HelperMethods`.
 
 ## License
