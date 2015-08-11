@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/babasbot/active_model_warnings/badge.svg?branch=master&service=github)](https://coveralls.io/github/babasbot/active_model_warnings?branch=master)
 [![Code Climate](https://codeclimate.com/github/babasbot/active_model_warnings/badges/gpa.svg)](https://codeclimate.com/github/babasbot/active_model_warnings)
 
-Compliant validtions for ActiveModel. This is useful when you want to define optional validations for a resource and keep it valid.
+Compliant validations for ActiveModel. This is useful when you want to define optional validations for a resource and keep it valid.
 
 Adds `compliant?` and `warnings` methods to `ActiveModel::Validations` that are similar to `valid?` and `errors` but for warnings.
 
